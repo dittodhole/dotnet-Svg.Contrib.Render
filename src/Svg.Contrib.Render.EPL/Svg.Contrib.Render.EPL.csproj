@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net35;net40;net46;netstandard2.0</TargetFrameworks>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <EnableDefaultItems>false</EnableDefaultItems>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageId>Svg.Contrib.Render.EPL</PackageId>
+    <Authors>dittodhole</Authors>
+    <PackageDescription>Convert SVG to Eltron Programming Language (EPL)</PackageDescription>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/dittodhole/dotnet-Svg.Contrib.Render</PackageProjectUrl>
+    <PackageIcon>noun_201040_cc.png</PackageIcon>
+    <PackageTags />
+    <PackageType>Dependency</PackageType>
+    <RepositoryUrl>https://github.com/dittodhole/dotnet-Svg.Contrib.Render.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net35'">
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net46'">
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GitVersionTask" Version="5.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Magick.NET-Q8-AnyCPU" Version="7.15.1" />
+    <PackageReference Include="Source.JetBrains.Annotations" Version="2019.1.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Svg.Contrib.Render\Svg.Contrib.Render.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefaultBootstrapper.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="EplCommands.cs" />
+    <Compile Include="EplContainer.cs" />
+    <Compile Include="EplRenderer.cs" />
+    <Compile Include="EplTransformer.cs" />
+    <Compile Include="SvgImageTranslator.cs" />
+    <Compile Include="SvgLineTranslator.cs" />
+    <Compile Include="SvgPathTranslator.cs" />
+    <Compile Include="SvgRectangleTranslator.cs" />
+    <Compile Include="SvgTextBaseTranslator.cs" />
+    <None Include="..\..\LICENSE.txt">
+      <Pack>true</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="assets\noun_201040_cc.png">
+      <Pack>true</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="README.md" />
+  </ItemGroup>
+</Project>
